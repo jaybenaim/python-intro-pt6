@@ -1,3 +1,4 @@
+
 the_list = [
 {'train': "72C", 'frequency_in_minutes': 15, 'direction': "north"},
 {'train': "72D", 'frequency_in_minutes': 15, 'direction': "south"},
@@ -73,8 +74,8 @@ def direction_of_trains(train_list, direction):
         if train_direction == direction:
             return name
 
-print(direction_of_trains(the_list, 'east'))
-print(direction_of_trains(the_list, 'north'))
+# print(direction_of_trains(the_list, 'east'))
+# print(direction_of_trains(the_list, 'north'))
 
 
 
@@ -85,39 +86,40 @@ def dep_time(time):
         data['first_departure_time'] = time
     return data['first_departure_time']
     
-print(dep_time(3))
+# print(dep_time(3))
 
 
+# 8 
+
+trains = [
+{'train': "72C", 'frequency_in_minutes': 15, 'direction': "north"},
+{'train': "72D", 'frequency_in_minutes': 15, 'direction': "south"},
+{'train': "610", 'frequency_in_minutes': 5, 'direction': "north"},
+{'train': "611", 'frequency_in_minutes': 5, 'direction': "south"},
+{'train': "80A", 'frequency_in_minutes': 30, 'direction': "east"},
+{'train': "80B", 'frequency_in_minutes': 30, 'direction': "west"},
+{'train': "110", 'frequency_in_minutes': 15, 'direction': "north"},
+{'train': "111", 'frequency_in_minutes': 15, 'direction': "south"}
+]
 
 
+trains_by_frequency = {}
+for train in trains:
+    freq = train['frequency_in_minutes']
+    name = train['train']
+    if freq in trains_by_frequency:
+        trains_by_frequency[freq].append(name)
+        
+    else:
+        trains_by_frequency[freq] = [name]
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+print(trains_by_frequency)
 
 
 
 # print(get_value('east'))  
 # def key_checker(chosen_value): 
-#     for dictionary in the_list: 
+#     for dictionary in trains: 
 #         for key, value in dictionary.items():
 #             if value == chosen_value: 
 #             # if the value exists print value 
@@ -125,7 +127,7 @@ print(dep_time(3))
 #             else: 
 #                 return False 
 # def get_value(chosen_key): 
-#     for dictionary in the_list: 
+#     for dictionary in trains: 
 #         for key, value in dictionary.items():
 #             if value == chosen_key: 
 #                 # print(value)
@@ -133,10 +135,10 @@ print(dep_time(3))
 #                 # string = f'{key} {value}'
 #                 # return string
 #                 # print(string)
-#                 for item in the_list: 
+#                 for item in trains: 
 #                     for key2, value2 in item.items(): 
 #                         # print(key2) 
-#                         return the_list[0]# item['train']
+#                         return trains[0]# item['train']
 #             # else: 
 #             #     return False 
 
@@ -153,20 +155,20 @@ print(dep_time(3))
 #                 # print(key)
 #             return 
 #             # for key2, value2 in   
-# get_train_direction("east", the_list)
+# get_train_direction("east", trains)
 # #1 Save the direction of train 111 into a variable.
-# length = len(the_list) - 1 
-# direction_train_11 = the_list[length]['direction']
+# length = len(trains) - 1 
+# direction_train_11 = trains[length]['direction']
 # #2 Save the frequency of train 80B into a variable.
 # frequency_train_80B = get_value('frequency_in_minutes')
 # #3 Save the direction of train 610 into a variable.
-# direction_train_610 = the_list[2]['direction']
+# direction_train_610 = trains[2]['direction']
 # # print(direction_train_610)
 
 # # Create an empty list. 
 # northbound_trains = []
 # # Iterate through each train 
-# for item  in the_list: 
+# for item  in trains: 
 #     # for train in northbound_trains:
 #     for key, value in item.items(): 
 #         # if it travels north
@@ -179,7 +181,7 @@ print(dep_time(3))
 
 # eastbound_trains = []
 
-# for item  in the_list: 
+# for item  in trains: 
 #     # for train in northbound_trains:
 #     for key, value in item.items(): 
 #         # if it travels north
